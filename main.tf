@@ -15,7 +15,7 @@ terraform {
   }
 }
 
-provider "aws" {
+provider aws {
   profile = "visolon-blog"
   region  = "eu-central-1"
 }

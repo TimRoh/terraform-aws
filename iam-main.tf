@@ -1,12 +1,12 @@
-resource "aws_iam_user" "tr" {
+resource aws_iam_user "tr" {
   name = "tim.rohwedder"
 }
 
-resource "aws_iam_group" "GlobalAdministrators" {
+resource aws_iam_group "GlobalAdministrators" {
   name = "GlobalAdministrators"
 }
 
-resource "aws_iam_policy" "FullAccess" {
+resource aws_iam_policy "FullAccess" {
   name        = "FullAccess"
   description = "grants full access to all AWS resources"
   policy      = <<EOF
@@ -23,19 +23,19 @@ resource "aws_iam_policy" "FullAccess" {
 EOF
 }
 
-resource "aws_iam_group_policy_attachment" "GlobalAdministrators" {
+resource aws_iam_group_policy_attachment "GlobalAdministrators" {
   group      = aws_iam_group.GlobalAdministrators.name
   policy_arn = aws_iam_policy.FullAccess.arn
 }
 
-resource "aws_iam_user_group_membership" "tr" {
+resource aws_iam_user_group_membership "tr" {
   user = aws_iam_user.tr.name
   groups = [
     aws_iam_group.GlobalAdministrators.name,
   ]
 }
 
-resource "aws_iam_account_password_policy" "strict" {
+resource aws_iam_account_password_policy "strict" {
   allow_users_to_change_password = true
   hard_expiry                    = false
   max_password_age               = 365

@@ -1,10 +1,10 @@
-resource "aws_default_vpc" "default" {
+resource aws_default_vpc "default" {
   tags = {
     Name = "Default VPC"
   }
 }
 
-resource "aws_default_subnet" "default_az1" {
+resource aws_default_subnet "default_az1" {
   availability_zone = "eu-central-1a"
 
   tags = {
@@ -12,7 +12,7 @@ resource "aws_default_subnet" "default_az1" {
   }
 }
 
-resource "aws_default_subnet" "default_az2" {
+resource aws_default_subnet "default_az2" {
   availability_zone = "eu-central-1b"
 
   tags = {
@@ -20,7 +20,7 @@ resource "aws_default_subnet" "default_az2" {
   }
 }
 
-resource "aws_default_subnet" "default_az3" {
+resource aws_default_subnet "default_az3" {
   availability_zone = "eu-central-1c"
 
   tags = {
@@ -28,7 +28,7 @@ resource "aws_default_subnet" "default_az3" {
   }
 }
 
-resource "aws_default_security_group" "default" {
+resource aws_default_security_group "default" {
   vpc_id = aws_default_vpc.default.id
 
   ingress {
@@ -47,7 +47,7 @@ resource "aws_default_security_group" "default" {
   }
 }
 
-resource "aws_default_network_acl" "default" {
+resource aws_default_network_acl "default" {
   default_network_acl_id = aws_default_vpc.default.default_network_acl_id
 
   ingress {

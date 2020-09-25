@@ -3,7 +3,7 @@ provider "aws" {
   profile = "visolon-blog"
 }
 
-resource "aws_s3_bucket" "terraform_state" {
+resource aws_s3_bucket "terraform_state" {
   bucket = "visolon-blog-tfstate"
 
   versioning {
@@ -15,7 +15,7 @@ resource "aws_s3_bucket" "terraform_state" {
   }
 }
 
-resource "aws_dynamodb_table" "terraform_state_lock" {
+resource aws_dynamodb_table "terraform_state_lock" {
   name           = "visolon-blog-terraform-state"
   read_capacity  = 1
   write_capacity = 1
