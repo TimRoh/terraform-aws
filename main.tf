@@ -19,3 +19,9 @@ provider aws {
   profile = "visolon-blog"
   region  = "eu-central-1"
 }
+
+# For certificates in us-east-1, required by cloudfront
+provider aws {
+  alias  = "us_east_1"
+  region = "us-east-1"
+}
